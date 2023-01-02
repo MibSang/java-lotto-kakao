@@ -15,8 +15,8 @@
         - [ ] bonusNumber (정적 팩토리 메서드)
             - 캐싱기능
     - [ ] Game
-    - [ ] Lotto
-      - [ ] LottoNumber
+    - [x] Lotto
+      - [x] LottoNumber
     - [ ] DTO
         - [ ] GameResult → 1등 ~ 5등까지 몇개씩 가지고 있는지에 대한 Count
             - Map(등수, 갯수), (2, 0), (3, 0) (4, 0), (5, 1))
@@ -35,3 +35,4 @@
 ### 테스트 정의
 - [x] LottoNumber
 - [x] Lotto
+- [ ] ComputerLotto
