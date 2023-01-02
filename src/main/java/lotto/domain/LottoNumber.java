@@ -5,10 +5,14 @@ import static lotto.constant.MessageConstant.INVALID_NUMBER_RANGE;
 import java.util.Objects;
 
 public class LottoNumber {
+
+    static final int MIN_LOTTO_NUMBER = 1;
+    static final int MAX_LOTTO_NUMBER = 45;
     private final int number;
 
+
     public LottoNumber(int number) {
-        if (number <= 0 || number >= 46) {
+        if (number < MIN_LOTTO_NUMBER || number > MAX_LOTTO_NUMBER) {
             throw new IllegalArgumentException(INVALID_NUMBER_RANGE);
         }
         this.number = number;

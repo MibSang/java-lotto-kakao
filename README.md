@@ -33,4 +33,5 @@
 - [ ] Controller
 
 ### 테스트 정의
-- [ ] Todo
+- [x] LottoNumber
+- [x] Lotto
