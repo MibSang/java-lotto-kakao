@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import static lotto.constant.MessageConstant.INVALID_DUPLICATED_LOTTO_NUMBER;
+
 import java.util.List;
 
 public class WinningLotto {
@@ -7,8 +9,15 @@ public class WinningLotto {
     private final LottoNumber bonusNumber;
 
     public WinningLotto(List<Integer> numbers, int bonusNumber) {
+        validateDuplicated(numbers, bonusNumber);
         this.lotto = new Lotto(numbers);
         this.bonusNumber = new LottoNumber(bonusNumber);
+    }
+
+    private void validateDuplicated(List<Integer> numbers, int bonusNumber) {
+        if (numbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException(INVALID_DUPLICATED_LOTTO_NUMBER);
+        }
     }
 
     public Lotto getLotto() {

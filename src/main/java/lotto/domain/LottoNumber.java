@@ -10,7 +10,6 @@ public class LottoNumber {
     static final int MAX_LOTTO_NUMBER = 45;
     private final int number;
 
-
     public LottoNumber(int number) {
         if (number < MIN_LOTTO_NUMBER || number > MAX_LOTTO_NUMBER) {
             throw new IllegalArgumentException(INVALID_NUMBER_RANGE);

@@ -1,6 +1,8 @@
 package lotto.domain;
 
+import static lotto.constant.MessageConstant.INVALID_DUPLICATED_LOTTO_NUMBER;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.util.List;
@@ -25,5 +27,12 @@ public class WinningLottoTest {
         assertThat(winningLotto.getBonusNumber())
                 .isEqualTo(new LottoNumber(40))
                 .isInstanceOf(LottoNumber.class);
+    }
+
+    @Test
+    void 보너스_숫자는_로또_숫자와_중복될_수_없다() {
+        assertThatThrownBy(() -> new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(INVALID_DUPLICATED_LOTTO_NUMBER);
     }
 }
