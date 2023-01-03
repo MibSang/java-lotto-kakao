@@ -9,30 +9,23 @@
 - 보너스 번호는 당첨 번호와 중첩될 수 없다.
 
 ### 클래스 정의
-- [ ] Model (Domain)
-    - [ ] ComputerLotto (Wrapping)
-        - [ ] Lotto
-        - [ ] bonusNumber (정적 팩토리 메서드)
+- [x] Model (Domain)
+    - [x] ComputerLotto (Wrapping)
+        - [x] Lotto
+        - [x] bonusNumber (정적 팩토리 메서드)
             - 캐싱기능
-    - [ ] Game
+    - [x] LottoGame
     - [x] Lotto
       - [x] LottoNumber
-    - [ ] DTO
-        - [ ] GameResult → 1등 ~ 5등까지 몇개씩 가지고 있는지에 대한 Count
+    - [x] DTO
+        - [x] GameResult → 1등 ~ 5등까지 몇개씩 가지고 있는지에 대한 Count
             - Map(등수, 갯수), (2, 0), (3, 0) (4, 0), (5, 1))
-        - [ ] LottoResult → 로또를 컴퓨터로또에 넣었을 때 나오는 결과값
+        - [x] LottoResult → 로또를 컴퓨터로또에 넣었을 때 나오는 결과값
             - 등수 (1~5 or 꽝)
     - [x] Enum
         - 1등 ~ 5등 + 꽝
             - GRADE (MATCH_COUNT, PRICE)
 
-- [ ] View
-    - Print
-    - Input
+- [x] View
 
-- [ ] Controller
-
-### 테스트 정의
-- [x] LottoNumber
-- [x] Lotto
-- [ ] ComputerLotto
+- [x] Controller (Application)
