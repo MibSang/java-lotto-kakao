@@ -14,8 +14,8 @@ public enum LottoGradeEnum {
     NONE_GRADE(0, 0);
 
 
-    private final int matchCount;
-    private final int price;
+    public final int matchCount;
+    public final int price;
 
     LottoGradeEnum(int matchCount, int price) {
         this.matchCount = matchCount;

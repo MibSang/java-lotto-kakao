@@ -2,7 +2,9 @@ package lotto.domain;
 
 import static lotto.constant.MessageConstant.INVALID_DUPLICATED_LOTTO_NUMBER;
 
+import java.util.HashSet;
 import java.util.List;
+import lotto.LottoGradeEnum;
 
 public class WinningLotto {
     private final Lotto lotto;
@@ -26,5 +28,17 @@ public class WinningLotto {
 
     public LottoNumber getBonusNumber() {
         return bonusNumber;
+    }
+
+    public LottoGradeEnum getGrade(Lotto lotto) {
+
+        HashSet<LottoNumber> winningLottoNumberSet = new HashSet<>(this.lotto.getNumbers());
+        int matchCount = 0;
+        for (LottoNumber lottoNumber : lotto.getNumbers()) {
+            if (winningLottoNumberSet.contains(lottoNumber)) {
+                matchCount++;
+            }
+        }
+        return LottoGradeEnum.getGrade(matchCount, winningLottoNumberSet.contains(bonusNumber));
     }
 }
