@@ -1,5 +1,7 @@
 package lotto;
 
+import static lotto.constant.MessageConstant.INVALID_MATCH_COUNT_RANGE;
+
 import java.util.Arrays;
 
 public enum LottoGradeEnum {
@@ -21,6 +23,7 @@ public enum LottoGradeEnum {
     }
 
     public static LottoGradeEnum getGrade(int matchCount, boolean isMatchBonus) {
+        validateMatchCount(matchCount);
         if (matchCount == SECOND.matchCount && isMatchBonus) {
             return SECOND;
         }
@@ -28,5 +31,11 @@ public enum LottoGradeEnum {
                 .filter((lottoGrade) -> lottoGrade.matchCount == matchCount)
                 .findFirst()
                 .orElse(NONE_GRADE);
+    }
+
+    private static void validateMatchCount(int matchCount) {
+        if (matchCount < 0 || matchCount > 6) {
+            throw new IllegalArgumentException(INVALID_MATCH_COUNT_RANGE);
+        }
     }
 }
