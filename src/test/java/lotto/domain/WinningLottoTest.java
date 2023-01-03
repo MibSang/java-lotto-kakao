@@ -25,7 +25,7 @@ public class WinningLottoTest {
     void 당첨로또는_LottoNumber_객체로_보너스_숫자를_가진다() {
         WinningLotto winningLotto = new WinningLotto(List.of(1, 2, 3, 4, 5, 6), 40);
         assertThat(winningLotto.getBonusNumber())
-                .isEqualTo(new LottoNumber(40))
+                .isEqualTo(LottoNumber.from(40))
                 .isInstanceOf(LottoNumber.class);
     }
 

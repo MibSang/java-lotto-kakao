@@ -11,7 +11,7 @@ public class WinningLotto {
     public WinningLotto(List<Integer> numbers, int bonusNumber) {
         validateDuplicated(numbers, bonusNumber);
         this.lotto = new Lotto(numbers);
-        this.bonusNumber = new LottoNumber(bonusNumber);
+        this.bonusNumber = LottoNumber.from(bonusNumber);
     }
 
     private void validateDuplicated(List<Integer> numbers, int bonusNumber) {

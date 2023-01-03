@@ -12,14 +12,14 @@ public class LottoNumberTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 44, 45})
     void 로또_숫자를_받아_생성한다(int number) {
-        assertThat(new LottoNumber(number)).isEqualTo(new LottoNumber(number));
+        assertThat(LottoNumber.from(number)).isEqualTo(LottoNumber.from(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 46, 100})
     void 로또_숫자는_1부터_45를_벗어나면_예외가_발생한다(int number) {
         Throwable exception = assertThrows(IllegalArgumentException.class,
-                () -> new LottoNumber(number)
+                () -> LottoNumber.from(number)
         );
         assertEquals(INVALID_NUMBER_RANGE, exception.getMessage());
     }
@@ -27,6 +27,6 @@ public class LottoNumberTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 44, 45})
     void 로또_숫자를_반환할_수_있다(int number) {
-        assertThat(new LottoNumber(number).getNumber()).isEqualTo(number);
+        assertThat(LottoNumber.from(number).getNumber()).isEqualTo(number);
     }
 }
