@@ -1,13 +1,20 @@
 package lotto.domain;
 
-import static lotto.constant.MessageConstant.INVALID_NUMBER_RANGE;
+import static lotto.constant.ExceptionMessages.INVALID_NUMBER_RANGE;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class LottoNumber {
     static final int MIN_LOTTO_NUMBER = 1;
     static final int MAX_LOTTO_NUMBER = 45;
+    private static final List<Integer> LOTTO_NUMBER_POOL =
+            IntStream.rangeClosed(LottoNumber.MIN_LOTTO_NUMBER, LottoNumber.MAX_LOTTO_NUMBER)
+                    .boxed()
+                    .collect(Collectors.toList());
 
     private final int number;
     private static final LottoNumber[] CACHED_LOTTO_NUMBER = new LottoNumber[MAX_LOTTO_NUMBER + 1];
@@ -30,6 +37,10 @@ public class LottoNumber {
 
     public int getNumber() {
         return number;
+    }
+
+    public static List<Integer> getLottoNumberPool() {
+        return new ArrayList<>(LOTTO_NUMBER_POOL);
     }
 
     @Override
